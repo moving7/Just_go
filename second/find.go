@@ -16,14 +16,16 @@ func main() {
 	 	lengthOfNonRepeatingSubStr("adskfladsflkwfiowe"))
 	 fmt.Println(
 	 	lengthOfNonRepeatingSubStr("测试测试请问考虑数量的咖啡机"))
+	 fmt.Println(
+	 	lengthOfNonRepeatingSubStr("重复文字重复"))
 
 }
 
 func lengthOfNonRepeatingSubStr(s string) int {
-	lastOccerred := make(map[byte]int)
+	lastOccerred := make(map[rune]int)
 	start := 0
 	maxLength := 0
-	for i, ch := range []byte(s) {
+	for i, ch := range []rune(s) {
 		if lastI, ok := lastOccerred[ch]; ok && lastI >= start {
 			start = lastI + 1
 		}
